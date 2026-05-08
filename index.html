@@ -3,167 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thầy Đinh Văn Hạnh | Meme Wiki 3667</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Thầy Đinh Văn Hạnh | 3667 Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #3667ff;
-            --bg-color: #f6f6f6;
-            --card-bg: #ffffff;
-            --text-color: #333;
+            --bg: #0a0a0c;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #3667ff;
+            --accent-glow: rgba(54, 103, 255, 0.3);
+            --text-main: #ffffff;
+            --text-sub: #a1a1aa;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(54, 103, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 71, 87, 0.05) 0%, transparent 20%);
         }
 
-        header {
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
+        .wrapper {
+            max-width: 1200px;
+            margin: 60px auto;
             padding: 0 20px;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
         }
 
-        /* Wiki Content */
-        .main-content {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        h1 { border-bottom: 1px solid #ccc; padding-bottom: 10px; }
-        h2 { color: var(--primary-color); border-left: 5px solid var(--primary-color); padding-left: 10px; }
-
-        /* Infobox (Sidebar) */
-        .infobox {
-            background: #fff;
-            border: 1px solid #a2a9b1;
-            padding: 10px;
-            font-size: 0.9rem;
-            border-radius: 4px;
-        }
-
-        .infobox img {
-            width: 100%;
-            border-radius: 4px;
-            transition: transform 0.3s;
-        }
-
-        .infobox img:hover { transform: scale(1.05); }
-
-        .infobox-title {
+        /* Header Section */
+        .hero {
             text-align: center;
-            font-weight: bold;
-            background: #eaecf0;
-            padding: 5px;
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
 
-        .infobox-row {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #eee;
-            padding: 5px 0;
+        .badge-3667 {
+            background: var(--accent);
+            padding: 5px 15px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        /* Meme Gallery */
-        .gallery {
+        /* Bento Grid Layout */
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Đặc tả các Block */
+        .profile-main { grid-column: span 2; grid-row: span 2; }
+        .stats { grid-column: span 2; }
+        .quote { grid-column: span 2; background: linear-gradient(45deg, #1a1a1a, #0a0a0c); }
+        .gallery-mini { grid-column: span 4; }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 30px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 2px solid var(--accent);
+        }
+
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            background-color: #2ed573;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            box-shadow: 0 0 10px #2ed573;
+        }
+
+        h2 { font-size: 1.5rem; margin-bottom: 15px; color: var(--accent); }
+        p { color: var(--text-sub); line-height: 1.6; }
+
+        /* Stats Styling */
+        .stat-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stat-item h3 { font-size: 2rem; color: #fff; }
+        .stat-item p { font-size: 0.8rem; text-transform: uppercase; }
+
+        /* Image Gallery */
+        .img-stack {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             margin-top: 20px;
         }
 
-        .meme-card {
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .meme-card img {
+        .img-stack img {
             width: 100%;
-            opacity: 0.8;
-            display: block;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            filter: grayscale(0.5);
+            transition: 0.3s;
         }
 
-        .meme-card:hover img { opacity: 1; }
+        .img-stack img:hover {
+            filter: grayscale(0) scale(1.05);
+        }
 
-        @media (max-width: 768px) {
-            .container { grid-template-columns: 1fr; }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            padding-bottom: 40px;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .grid-container { grid-template-columns: 1fr; }
+            .profile-main, .stats, .quote, .gallery-mini { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Hạnh Meme Wiki 3667</h1>
-</header>
-
-<div class="container">
-    <!-- Cột nội dung chính -->
-    <div class="main-content">
+<div class="wrapper">
+    <header class="hero">
+        <span class="badge-3667">IDENTITY 3667</span>
         <h1>Thầy Đinh Văn Hạnh</h1>
-        <p><strong>Thầy Đinh Văn Hạnh</strong> (mã hiệu: 3667) là một "hiện tượng mạng" trong lòng các học sinh. Thầy nổi tiếng với phong cách giảng dạy độc đáo và những khoảnh khắc xuất thần trở thành tư liệu Meme bất hủ.</p>
+        <p><span class="status-dot"></span> Đang hoạt động trong hệ tư tưởng</p>
+    </header>
 
-        <h2>Tiểu sử sơ lược</h2>
-        <ul>
-            <li><strong>Mã số định danh:</strong> 3667</li>
-            <li><strong>Kỹ năng đặc biệt:</strong> Sát thương bằng lời nói (Crit Dame), Skill né Meme từ học sinh.</li>
-            <li><strong>Câu nói thương hiệu:</strong> "Đang cập nhật..."</li>
-        </ul>
+    <main class="grid-container">
+        <!-- Card 1: Thông tin chính -->
+        <section class="card profile-main">
+            <img src="https://github.com/NosXLAB-GIT/dinhvanhanh-website/blob/main/image/dinhvanhanh01.jpg?raw=true" alt="Avatar" class="avatar">
+            <h2>Tiểu sử chuyên nghiệp</h2>
+            <p>Một hiện tượng trong giáo dục hiện đại, thầy Đinh Văn Hạnh (mã hiệu 3667) sở hữu kỹ năng sư phạm thượng thừa kết hợp cùng khả năng tạo Meme thiên bẩm. Thầy là người đặt nền móng cho "Hệ tư tưởng 3667" - nơi kiến thức và tiếng cười hòa quyện.</p>
+        </section>
 
-        <h2>Tầm ảnh hưởng</h2>
-        <p>Không chỉ dừng lại ở việc giảng dạy, thầy Hạnh đã trở thành nguồn cảm hứng cho hàng loạt các ấn phẩm chế ảnh, video TikTok và các group học đường. Chỉ số phủ sóng của thầy trong cộng đồng 3667 là cực kỳ lớn.</p>
+        <!-- Card 2: Chỉ số sức mạnh -->
+        <section class="card stats">
+            <h2>Chỉ số ảnh hưởng</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <h3>99+</h3>
+                    <p>Meme Stock</p>
+                </div>
+                <div class="stat-item">
+                    <h3>SSR</h3>
+                    <p>Rarity</p>
+                </div>
+                <div class="stat-item">
+                    <h3>INF</h3>
+                    <p>Crit Dame</p>
+                </div>
+            </div>
+        </section>
 
-        <h2>Kho Meme 3667</h2>
-        <div class="gallery">
-            <div class="meme-card">
-                <img src="https://github.com/NosXLAB-GIT/dinhvanhanh-website/blob/main/image/dinhvanhanh01.jpg?raw=true" alt="Meme Thầy Hạnh">
-            </div>
-            <!-- Thêm ảnh khác tương tự ở đây -->
-        </div>
-    </div>
+        <!-- Card 3: Câu nói -->
+        <section class="card quote">
+            <h2>Châm ngôn 3667</h2>
+            <p style="font-style: italic; font-size: 1.2rem; color: #fff;">
+                "Đang cập nhật nội dung để gây chấn động tâm lý học sinh..."
+            </p>
+        </section>
 
-    <!-- Cột Infobox (Giống Wikipedia) -->
-    <aside>
-        <div class="infobox">
-            <div class="infobox-title">Nhân vật Wiki: Đinh Văn Hạnh</div>
-            <img src="https://github.com/NosXLAB-GIT/dinhvanhanh-website/blob/main/image/dinhvanhanh01.jpg?raw=true" alt="Thầy Hạnh">
-            <div class="infobox-row">
-                <strong>Biệt hiệu:</strong> <span>Hạnh 3667</span>
+        <!-- Card 4: Gallery -->
+        <section class="card gallery-mini">
+            <h2>Kho dữ liệu hình ảnh</h2>
+            <div class="img-stack">
+                <img src="https://github.com/NosXLAB-GIT/dinhvanhanh-website/blob/main/image/dinhvanhanh01.jpg?raw=true" alt="Hạnh 01">
+                <img src="https://github.com/NosXLAB-GIT/dinhvanhanh-website/blob/main/image/dinhvanhanh01.jpg?raw=true" alt="Hạnh 02" style="filter: hue-rotate(90deg);">
+                <img src="https://github.com/NosXLAB-GIT/dinhvanhanh-website/blob/main/image/dinhvanhanh01.jpg?raw=true" alt="Hạnh 03" style="filter: invert(1);">
+                <img src="https://github.com/NosXLAB-GIT/dinhvanhanh-website/blob/main/image/dinhvanhanh01.jpg?raw=true" alt="Hạnh 04" style="filter: sepia(1);">
             </div>
-            <div class="infobox-row">
-                <strong>Hệ tư tưởng:</strong> <span>Meme học</span>
-            </div>
-            <div class="infobox-row">
-                <strong>Tình trạng:</strong> <span>Đang tỏa sáng</span>
-            </div>
-            <div class="infobox-row">
-                <strong>Độ hiếm:</strong> <span>SSR (Legendary)</span>
-            </div>
-        </div>
-    </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p><b>NosXLAB Studio</b> By HBach.</p>
+    </footer>
 </div>
-
-<footer style="text-align: center; padding: 20px; color: #888;">
-    <p>&copy; 2024 Fanclub Thầy Hạnh 3667 - Made with HBach</p>
-</footer>
 
 </body>
 </html>
